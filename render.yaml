@@ -1,0 +1,17 @@
+# render.yaml
+# Deploy bot dạng Web Service (có URL https)
+
+services:
+  - type: web
+    name: asean-missyou
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot_telegram.py
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: ADMIN_WEB_URL
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11"
